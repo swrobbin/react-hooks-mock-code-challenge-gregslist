@@ -1,11 +1,20 @@
-import React from "react";
-// import ListingCard from "./ListingCard";
+import React, { useEffect } from "react";
+import ListingCard from "./ListingCard";
 
-function ListingsContainer() {
+function ListingsContainer({items, deleteHandler }) {
+
+const itemCards = items.map((item) => (
+  <li key={item.id}>
+    <ListingCard  deleteHandler={deleteHandler} item={item}/>
+  </li>
+   
+))
+
+
   return (
     <main>
       <ul className="cards">
-        {/* use the ListingCard component to display listings */}
+        {itemCards}
       </ul>
     </main>
   );
