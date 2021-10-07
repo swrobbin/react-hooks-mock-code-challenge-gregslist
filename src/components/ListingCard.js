@@ -10,11 +10,10 @@ function ListingCard({item, deleteHandler}) {
     setToggle(flip)
   }
 
-  function onDelete(item){
-    console.log(item, 'item on delete')
-    deleteHandler(item.id)
-    // console.log(item, 'id')
-    fetch(`http://localhost:6001/listings/${item.id}`, {
+  function onDelete(e){
+    const id = parseInt(e.target.id)
+    deleteHandler(id)
+    fetch(`http://localhost:6001/listings/${id}`, {
       method: 'DELETE'
     })
 
@@ -34,7 +33,7 @@ function ListingCard({item, deleteHandler}) {
         )}
         <strong>{item.description}</strong>
         <span> · {item.location}</span>
-        <button onClick={onDelete} className="emoji-button delete">🗑</button>
+        <button  id={item.id} onClick={onDelete} className="emoji-button delete">🗑</button>
       </div>
     </li>
   );

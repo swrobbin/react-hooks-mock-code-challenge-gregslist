@@ -3,12 +3,17 @@ import ListingCard from "./ListingCard";
 
 function ListingsContainer({items, deleteHandler }) {
 
-const itemCards = items.map((item) => (
-  <li key={item.id}>
-    <ListingCard  deleteHandler={deleteHandler} item={item}/>
-  </li>
-   
-))
+const itemCards = items.map((item) => {
+  return (<li key={item.id}>
+        <ListingCard  deleteHandler={deleteHandler} item={item}/>
+        </li>  
+  ) 
+}
+)
+
+
+  
+
 
 
   return (
