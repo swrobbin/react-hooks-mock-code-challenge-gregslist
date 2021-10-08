@@ -4,13 +4,13 @@ function Search({onSearch}) {
   const [search, setSearch] = useState('')
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("submitted");
+    // console.log("submitted");
     onSearch(search)
   }
 
-  function searchHandler(e){
+    const searchHandler = (e) => {
     setSearch(e.target.value)
-    // 
+  
   }
 
   return (

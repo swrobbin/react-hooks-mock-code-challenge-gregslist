@@ -3,7 +3,8 @@ import Header from "./Header";
 import ListingsContainer from "./ListingsContainer";
 
 function App() {
-const [items, setItems] = useState([])
+const [items, setItems] = useState([]);
+const [search, setSearch] = useState('');
 
 
 useEffect(() => {
@@ -15,24 +16,24 @@ useEffect(() => {
 function deleteHandler(obj){
   const filteredItems = items.filter(item => item.id !== obj)
   setItems(filteredItems)
-  // console.log(obj, "obj")
   
 }
-function onSearch(search){
+
+
   const searchedItems = items.filter((item) => {
-     item.description.toLowerCase().includes(search.toLowerCase());
+    return item.description.toLowerCase().includes(search.toLowerCase());
       
   })
-  setItems(searchedItems)
-}
+ 
+
 
   return (
     <div className="app">
       <Header 
-      onSearch={onSearch}
+      onSearch={setSearch}
       />
       <ListingsContainer 
-        items={items}
+        items={searchedItems}
         deleteHandler={deleteHandler}
 
         />

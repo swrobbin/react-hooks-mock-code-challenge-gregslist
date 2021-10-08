@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function ListingCard({item, deleteHandler}) {
-  console.log(item, 'item')
+  // console.log(item, 'item')
   
   const [toggle, setToggle] = useState(false)
 
